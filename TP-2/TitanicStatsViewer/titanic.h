@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "abstractChartView.h"
+#include "pieChartView.h"
 #include "data.h"
 
 QT_BEGIN_NAMESPACE
@@ -15,7 +16,7 @@ class Titanic : public QMainWindow {
 
 private:
     Ui::Titanic *ui;
-    //AbstractChartView chartView;
+    AbstractChartView chartView;
     Data *data;
 
 private slots:
