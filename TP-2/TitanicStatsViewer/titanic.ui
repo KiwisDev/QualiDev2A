@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Titanic</class>
+ <widget class="QMainWindow" name="Titanic">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Titanic</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAffichage">
+    <property name="title">
+     <string>Affichage</string>
+    </property>
+    <addaction name="actionRatioHF"/>
+    <addaction name="actionCate"/>
+    <addaction name="actionAgeCate"/>
+   </widget>
+   <addaction name="menuAffichage"/>
+  </widget>
+  <action name="actionRatioHF">
+   <property name="text">
+    <string>Ratio H/F</string>
+   </property>
+  </action>
+  <action name="actionCate">
+   <property name="text">
+    <string>Catégorie</string>
+   </property>
+  </action>
+  <action name="actionAgeCate">
+   <property name="text">
+    <string>Age/Catégorie</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
