@@ -8,10 +8,10 @@
 
 #include "passenger.h"
 
-class Data {
-private:
-    QList<Passenger> passengers;
+class Data { 
 public:
+    QList<Passenger> passengers;
+
     /**
      * @brief Data
      */

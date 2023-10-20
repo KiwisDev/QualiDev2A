@@ -13,12 +13,14 @@ SOURCES += \
     data.cpp \
     main.cpp \
     passenger.cpp \
+    pieChartView.cpp \
     titanic.cpp
 
 HEADERS += \
     abstractChartView.h \
     data.h \
     passenger.h \
+    pieChartView.h \
     titanic.h
 
 FORMS += \

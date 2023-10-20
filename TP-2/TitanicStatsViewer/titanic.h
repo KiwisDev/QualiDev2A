@@ -15,8 +15,13 @@ class Titanic : public QMainWindow {
 
 private:
     Ui::Titanic *ui;
-    AbstractChartView chartView;
+    //AbstractChartView chartView;
     Data *data;
+
+private slots:
+    void onActionCate();
+    void onActionAgeCate();
+    void onActionRatioHF();
 
 public:
     Titanic(Data *data, QWidget *parent = nullptr);

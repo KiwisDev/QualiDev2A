@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     data.loadData("stats/titanic.dbf");
 
     QApplication a(argc, argv);
-    Titanic w(data);
+    Titanic w(&data);
     w.show();
     return a.exec();
 }
