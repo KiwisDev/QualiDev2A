@@ -7,7 +7,7 @@
 
 #include "abstractChartView.h"
 
-class PieChartView : AbstractChartView {
+class PieChartView : public AbstractChartView {
 public:
     PieChartView();
     QWidget* getChartView(Data *data);

@@ -10,15 +10,19 @@ CONFIG += c++17
 
 SOURCES += \
     abstractChartView.cpp \
+    barChartView.cpp \
     data.cpp \
     main.cpp \
+    multiChartView.cpp \
     passenger.cpp \
     pieChartView.cpp \
     titanic.cpp
 
 HEADERS += \
     abstractChartView.h \
+    barChartView.h \
     data.h \
+    multiChartView.h \
     passenger.h \
     pieChartView.h \
     titanic.h
