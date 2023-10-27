@@ -15,6 +15,9 @@ QWidget* PieChartView::getChartView(Data *data) {
     QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("Ratio H/F");
+    chart->setTheme(QChart::ChartThemeDark);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->setAnimationDuration(800);
 
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);

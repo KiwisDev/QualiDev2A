@@ -39,6 +39,9 @@ QWidget* BarChartView::getChartView(Data *data) {
 
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setTheme(QChart::ChartThemeDark);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->setAnimationDuration(800);
 
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
