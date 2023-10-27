@@ -8,7 +8,7 @@ void Data::loadData(QString path) {
     int _class, _age, _sex, _survived;
 
     // Load file from given path
-    QFile file(QDir::currentPath() + "/../TitanicStatsViewer/" + path);
+    QFile file(path);
 
     // Open file in ReadOnly mode
     if(!file.open(QIODevice::ReadOnly)) {
