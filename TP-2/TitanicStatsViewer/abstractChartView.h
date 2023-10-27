@@ -7,7 +7,16 @@
 
 class AbstractChartView {
 public:
+    /**
+     * @brief AbstractChartView, empty constructor of the abstract class
+     */
     AbstractChartView();
+
+    /**
+     * @brief getChartView, virtual function
+     * @param data, data used to generates charts
+     * @return widget containing charts
+     */
     virtual QWidget* getChartView(Data *data) = 0;
 };
 

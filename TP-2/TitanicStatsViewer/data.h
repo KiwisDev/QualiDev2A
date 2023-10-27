@@ -13,13 +13,13 @@ public:
     QList<Passenger> passengers;
 
     /**
-     * @brief Data
+     * @brief Data, constructor of the class
      */
     Data();
 
     /**
-     * @brief Load data from file
-     * @param path
+     * @brief loadData, load data from the given path
+     * @param path, path to the file
      */
     void loadData(QString path);
 };

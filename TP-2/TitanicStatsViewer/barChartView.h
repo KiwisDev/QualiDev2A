@@ -12,7 +12,16 @@
 
 class BarChartView : public AbstractChartView {
 public:
+    /**
+     * @brief BarChartView, constructor of the class
+     */
     BarChartView();
+
+    /**
+     * @brief getChartView, generate the bar chart and his widget
+     * @param data, data used to generates charts
+     * @return widget containing charts
+     */
     QWidget* getChartView(Data *data);
 };
 
