@@ -26,6 +26,7 @@ void Promotion::loadFileCSV(const QString &path) {
         _lastName = wordList.at(1);
         _dep = wordList.at(3).toInt();
         _bac = wordList.at(4);
+        _bac = _bac.first(_bac.length()-1);
 
         this->students.append(Student(_num, _firstName, _lastName, _dep, _bac));
     }

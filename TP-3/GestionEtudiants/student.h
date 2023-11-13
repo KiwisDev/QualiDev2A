@@ -26,6 +26,7 @@ public:
 
     int getNum() const { return num; }
     int getDep() const { return dep; }
+    QString getBac() const { return bac ;}
 
     QString toQString() {
         return QString::number(this->num) + " - " + this->lastName + " " + this->firstName + " (" + QString::number(this->dep) + ")";

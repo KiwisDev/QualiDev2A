@@ -9,6 +9,7 @@ ViewPieChart::ViewPieChart(Promotion* promo, QGroupBox* groupBox) {
 
 void ViewPieChart::update() {
     delete(groupBox->layout());
+    QVBoxLayout* layout = new QVBoxLayout();
 
     int depCount[97]; // index 0 is for unknow or error
     for(int i=0; i<97; i++) {
@@ -23,8 +24,6 @@ void ViewPieChart::update() {
             depCount[0]++;
         }
     }
-
-    QVBoxLayout* layout = new QVBoxLayout();
 
     QPieSeries *series = new QPieSeries();
     for(int i=1; i<97; i++) {

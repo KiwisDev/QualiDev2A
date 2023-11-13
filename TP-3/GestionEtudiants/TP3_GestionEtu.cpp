@@ -13,4 +13,7 @@ TP3_GestionEtu::TP3_GestionEtu(Promotion* promo, QWidget *parent) : QMainWindow(
 
     pieChartView = new ViewPieChart(promo, this->ui.groupBox_department);
     promo->addObserver(pieChartView);
+
+    histogramView = new ViewHistogram(promo, this->ui.groupBox_bacs);
+    promo->addObserver(histogramView);
 }
