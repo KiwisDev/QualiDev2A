@@ -23,5 +23,11 @@ public:
      * @param bac, bac of the student
      */
     Student(int num, const QString& firstName, const QString& lastName, int dep, const QString& bac);
+
+    int getNum() const { return num; }
+
+    QString toQString() {
+        return QString::number(this->num) + " - " + this->lastName + " " + this->firstName + " (" + QString::number(this->dep) + ")";
+    }
 };
 

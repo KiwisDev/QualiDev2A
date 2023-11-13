@@ -22,6 +22,10 @@ SRCDIR=TP3_GestionEtu
 
 HEADERS = \
    TP3_GestionEtu.h \
+   controller.h \
+   controllerAdd.h \
+   controllerDelete.h \
+   controllerDeleteNum.h \
    observer.h \
    promotion.h \
    student.h \
@@ -32,6 +36,9 @@ HEADERS = \
 
 SOURCES = \
    TP3_GestionEtu.cpp \
+   controllerAdd.cpp \
+   controllerDelete.cpp \
+   controllerDeleteNum.cpp \
    main.cpp \
    promotion.cpp \
    student.cpp \

@@ -15,10 +15,9 @@ void Promotion::loadFileCSV(const QString &path) {
         qDebug("Unable to load file");
         exit(1);
     }
-    QTextStream inStream(&file);
 
     // Read data and add students to the list
-    while(!inStream.atEnd()) {
+    while(!file.atEnd()) {
         QString line =  file.readLine();
         QStringList wordList = line.split(';');
 
@@ -33,4 +32,28 @@ void Promotion::loadFileCSV(const QString &path) {
 
     // Close file
     file.close();
+}
+
+int Promotion::findStudent(QString student) {
+    for(int i=0; i<this->students.size(); i++) {
+        if(this->students[i].toQString() == student) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+void Promotion::addObserver(Observer *observer) {
+    this->observerList.push_back(observer);
+}
+
+void Promotion::removeObserver(Observer *observer) {
+    this->observerList.removeOne(observer);
+}
+
+void Promotion::notifyObserver() {
+    for(int i=0; i<this->observerList.size(); i++) {
+        this->observerList[i]->update();
+    }
 }

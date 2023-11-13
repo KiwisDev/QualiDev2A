@@ -1,9 +1,28 @@
 #pragma once
 
-#include "promotion.h"
+#include <QListWidget>
+#include <QList>
+#include <QListWidgetItem>
+#include <QStringList>
 
-class ViewList {
+#include "promotion.h"
+#include "controllerDelete.h"
+#include "observer.h"
+
+class ViewList : public QObject, public Observer {
+    Q_OBJECT
+
+private:
+    Promotion* promo;
+    QListWidget* listWidget;
+    Controller* controller;
+
+    void update();
+
+public slots:
+    void onDeleteButton();
+
 public:
-	ViewList();
+    ViewList(Promotion* promo, QListWidget* listWidget);
 };
 

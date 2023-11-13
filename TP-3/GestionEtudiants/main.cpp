@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     Promotion* promo = new Promotion();
     promo->loadFileCSV("C:/Users/gaelv/Documents/Cours/QualiDev2A/TP-3/GestionEtudiants/data/promoDUT.csv");
 
-    TP3_GestionEtu w;
+    TP3_GestionEtu w(promo);
     w.show();
 
     return a.exec();
