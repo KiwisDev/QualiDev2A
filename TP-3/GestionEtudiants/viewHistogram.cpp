@@ -19,7 +19,6 @@ void ViewHistogram::update() {
 
     for(int i=0; i<this->promo->students.size(); i++) {
         QString bac = this->promo->students[i].getBac();
-        std::cout << bac.toStdString() << std::endl;
 
         if(bac == "Autre")
             bacCount[0]++;
@@ -35,6 +34,12 @@ void ViewHistogram::update() {
             bacCount[5]++;
         else if(bac == "STI")
             bacCount[6]++;
+    }
+
+    int maxVal = bacCount[0];
+    for(int i=1; i< 6; i++) {
+        if(maxVal < bacCount[i])
+            maxVal = bacCount[i];
     }
 
     QBarSet* barSet = new QBarSet("Bac");
@@ -55,7 +60,7 @@ void ViewHistogram::update() {
     series->attachAxis(axisX);
 
     QValueAxis* axisY = new QValueAxis();
-    axisY->setRange(0, bacCount[3]);
+    axisY->setRange(0, maxVal);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 

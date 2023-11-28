@@ -53,6 +53,15 @@ void PaintView::drawForeground(QPainter* painter, const QRectF& rect) {
 
     painter->restore();
 
+    painter->save();
+
+    painter->setPen(Qt::red);
+    for(int i=0; i<selectedItems().size(); i++) {
+        //selectedItems().at(i).data();
+    }
+
+    painter->restore();
+
 }
 
 void PaintView::updateModel() {
