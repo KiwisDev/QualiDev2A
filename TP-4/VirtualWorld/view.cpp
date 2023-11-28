@@ -1,6 +1,7 @@
 #include "view.h"
 #include <QGraphicsItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QGuiApplication>
 #include <iostream>
 
 // -- Tree view --
@@ -56,10 +57,10 @@ void PaintView::drawForeground(QPainter* painter, const QRectF& rect) {
 
     painter->save();
 
-    painter->setPen(Qt::red);
-    for(int i=0; i<selectedItems().size(); i++) {
-        painter->drawRect(selectedItems()[i]->boundingRect());
-    }
+    // painter->setPen(Qt::red);
+    // for(int i=0; i<selectedItems().size(); i++) {
+    //     painter->drawRect(selectedItems()[i]->boundingRect());
+    // }
 
     painter->restore();
 
@@ -115,14 +116,16 @@ void PaintView::mouseMoveEvent(QGraphicsSceneMouseEvent* mouseEvent) {
 }
 
 void PaintView::mouseReleaseEvent(QGraphicsSceneMouseEvent* mouseEvent) {
-    toolbox = "mouseReleaseEvent";
+    if (!QGuiApplication::keyboardModifiers().testFlag(Qt::ControlModifier)) {
+        toolbox = "mouseReleaseEvent";
 
-    // Call Controller to modify the model
-    (new ControllerMoveShape(shapeManager))->control(selectedItems());
+        // Call Controller to modify the model
+        (new ControllerMoveShape(shapeManager))->control(selectedItems());
 
-    for (QGraphicsItem* item : selectedItems()) {
-        item->setCursor(QCursor(Qt::ArrowCursor));
-        item->setSelected(false);
+        for (QGraphicsItem* item : selectedItems()) {
+            item->setCursor(QCursor(Qt::ArrowCursor));
+            item->setSelected(false);
+        }
     }
 
     update();
