@@ -91,7 +91,7 @@ void PaintView::mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent) {
         toolbox = "mousePressEvent (" + QString::number(mousePos.x()) + "," + QString::number(mousePos.y()) + ")";
 
         for (auto s : items(mousePos)) {
-            s->setSelected(!s->isSelected());
+            s->setSelected(true);
             s->setOpacity( 1.1-s->opacity()); //assuming default opacity=1. switch from 1. to 0.1, and conversely
         }
     }
