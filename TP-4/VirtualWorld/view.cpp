@@ -1,6 +1,7 @@
 #include "view.h"
 #include <QGraphicsItem>
 #include <QGraphicsSceneMouseEvent>
+#include <iostream>
 
 // -- Tree view --
 
@@ -57,7 +58,7 @@ void PaintView::drawForeground(QPainter* painter, const QRectF& rect) {
 
     painter->setPen(Qt::red);
     for(int i=0; i<selectedItems().size(); i++) {
-        //selectedItems().at(i).data();
+        painter->drawRect(selectedItems()[i]->boundingRect());
     }
 
     painter->restore();
