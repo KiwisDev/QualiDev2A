@@ -14,6 +14,7 @@ public:
 	void control();
 };
 
+
 class ControllerMoveShape {
 private:
 	ShapeManager* shapeManager;
@@ -21,4 +22,14 @@ private:
 public:
 	ControllerMoveShape(ShapeManager* = nullptr);
     void control(const QVector<QGraphicsItem *> &);
+};
+
+
+class ControllerGroup {
+private:
+    ShapeManager* shapeManager;
+
+public:
+    ControllerGroup(ShapeManager* sm = nullptr);
+    void control(const QVector<QGraphicsItem*> & items);
 };

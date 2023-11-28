@@ -18,6 +18,7 @@ VirtualWorld::VirtualWorld(QWidget *parent, ShapeManager* sm) : QMainWindow(pare
 
     // Connect buttons
     connect(ui.Object_AddButton, &QPushButton::pressed, this, &VirtualWorld::addShape);
+    connect(ui.Object_GroupButton, &QPushButton::pressed, this, &VirtualWorld::groupShape);
 }
 
 VirtualWorld::~VirtualWorld() {
@@ -26,4 +27,8 @@ VirtualWorld::~VirtualWorld() {
 
 void VirtualWorld::addShape() {
     ControllerAdd(shapeManager, ui.radioButton_Circle, ui.radioButton_Square, ui.radioButton_Rectangle).control();
+}
+
+void VirtualWorld::groupShape() {
+    ControllerGroup(shapeManager).control(paintview->selectedItems());
 }

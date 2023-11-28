@@ -1,5 +1,6 @@
 #include "controller.h"
 #include "shapemanager.h"
+#include "shape.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -21,6 +22,7 @@ void ControllerAdd::control() {
 	//shapeManager->add(new Circle(QPointF(0., 0.), 100.));
 }
 
+
 ControllerMoveShape::ControllerMoveShape(ShapeManager* sm) : shapeManager(sm) {}
 
 void ControllerMoveShape::control(const QVector<QGraphicsItem*>& items) {
@@ -39,4 +41,23 @@ void ControllerMoveShape::control(const QVector<QGraphicsItem*>& items) {
 	}
 
 	shapeManager->notifyObserver();
+}
+
+
+ControllerGroup::ControllerGroup(ShapeManager *sm) : shapeManager(sm) {}
+
+void ControllerGroup::control(const QVector<QGraphicsItem *> & items) {
+    if (shapeManager == nullptr) return;
+
+    // Group Shape
+    Group* group = new Group();
+
+    for (QGraphicsItem* item : items) {
+        QVariant variant = item->data(0);
+        int id = variant.toInt();
+
+        group->addShape(shapeManager->getShapes()[id]);
+    }
+
+    shapeManager->add(group);
 }

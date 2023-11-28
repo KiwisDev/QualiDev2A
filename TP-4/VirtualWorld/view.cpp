@@ -23,14 +23,14 @@ void TreeView::updateModel() {
         item->setText(0, QString::number(shape->id));
         item->setText(1, shape->type());
 
-
-        QTreeWidgetItem* itemChild1 = new QTreeWidgetItem(item);
-        itemChild1->setText(0, "ChildId1");
-        itemChild1->setText(1, "ChildType1");
-
-        QTreeWidgetItem* itemChild2 = new QTreeWidgetItem(item);
-        itemChild2->setText(0, "ChildId2");
-        itemChild2->setText(1, "ChildType2");
+        if (shape->type() == "Group") {
+            Group* group = (Group*)shape;
+            for(int i=0; i<group->shapes().size(); i++) {
+                QTreeWidgetItem* child = new QTreeWidgetItem(item);
+                child->setText(0, QString::number(group->shapes().at(i)->id));
+                child->setText(1, group->shapes().at(i)->type());
+            }
+        }
     }
 }
 
@@ -113,7 +113,6 @@ void PaintView::mouseMoveEvent(QGraphicsSceneMouseEvent* mouseEvent) {
             item->moveBy(mouseD.x(), mouseD.y());
         }
         mousePos = mousePosNew;
-        currentMousePos = mouseEvent->pos();
     }
 
     update();

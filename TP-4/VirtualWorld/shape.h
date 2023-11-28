@@ -66,7 +66,8 @@ public:
 
     void addShape(Shape* s);
     void deleteShape(Shape* s);
+    QVector<Shape*> shapes();
 
     QString type() const;
-    QGraphicsItemGroup* getGraphicsItemGroup() const;
+    QGraphicsItemGroup* getGraphicsItem() const;
 };

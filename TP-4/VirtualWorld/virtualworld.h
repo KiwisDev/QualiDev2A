@@ -13,6 +13,7 @@ public:
 
 public slots:
     void addShape();
+    void groupShape();
 
 private:
     Ui::VirtualWorldClass ui;

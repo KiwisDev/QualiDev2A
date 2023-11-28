@@ -93,7 +93,11 @@ void Group::deleteShape(Shape *s) {
     this->shapeList.removeOne(s);
 }
 
-QGraphicsItemGroup* Group::getGraphicsItemGroup() const {
+QVector<Shape*> Group::shapes() {
+    return this->shapeList;
+}
+
+QGraphicsItemGroup* Group::getGraphicsItem() const {
     QGraphicsItemGroup* itemGroup = new QGraphicsItemGroup();
     for(int i=0; i<this->shapeList.size(); i++) {
         itemGroup->addToGroup(shapeList.at(i)->getGraphicsItem());
