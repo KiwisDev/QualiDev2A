@@ -57,13 +57,12 @@ void PaintView::drawForeground(QPainter* painter, const QRectF& rect) {
 
     painter->save();
 
-    // painter->setPen(Qt::red);
-    // for(int i=0; i<selectedItems().size(); i++) {
-    //     painter->drawRect(selectedItems()[i]->boundingRect());
-    // }
+    painter->setPen(Qt::red);
+    for(int i=0; i<selectedItems().size(); i++) {
+        painter->drawRect(selectedItems()[i]->boundingRect());
+    }
 
     painter->restore();
-
 }
 
 void PaintView::updateModel() {
@@ -90,9 +89,13 @@ void PaintView::mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent) {
         mousePos = mouseEvent->scenePos();
         toolbox = "mousePressEvent (" + QString::number(mousePos.x()) + "," + QString::number(mousePos.y()) + ")";
 
-        for (auto s : items(mousePos)) {
-            s->setSelected(true);
-            s->setOpacity( 1.1-s->opacity()); //assuming default opacity=1. switch from 1. to 0.1, and conversely
+        if (!items(mousePos).empty()) {
+            for (auto s : items(mousePos)) {
+                s->setSelected(true);
+                s->setOpacity( 1.1-s->opacity()); //assuming default opacity=1. switch from 1. to 0.1, and conversely
+            }
+        } else {
+            lastClickPos = mouseEvent->scenePos();
         }
     }
 
@@ -110,21 +113,31 @@ void PaintView::mouseMoveEvent(QGraphicsSceneMouseEvent* mouseEvent) {
             item->moveBy(mouseD.x(), mouseD.y());
         }
         mousePos = mousePosNew;
+        currentMousePos = mouseEvent->pos();
     }
 
     update();
 }
 
 void PaintView::mouseReleaseEvent(QGraphicsSceneMouseEvent* mouseEvent) {
+    toolbox = "mouseReleaseEvent";
+
     if (!QGuiApplication::keyboardModifiers().testFlag(Qt::ControlModifier)) {
-        toolbox = "mouseReleaseEvent";
 
-        // Call Controller to modify the model
-        (new ControllerMoveShape(shapeManager))->control(selectedItems());
+        if (!selectedItems().empty()) {
+            // Call Controller to modify the model
+            (new ControllerMoveShape(shapeManager))->control(selectedItems());
 
-        for (QGraphicsItem* item : selectedItems()) {
-            item->setCursor(QCursor(Qt::ArrowCursor));
-            item->setSelected(false);
+            for (QGraphicsItem* item : selectedItems()) {
+                item->setCursor(QCursor(Qt::ArrowCursor));
+                item->setSelected(false);
+            }
+        } else {
+            for (auto s : items(QRectF(lastClickPos, mouseEvent->pos()))) {
+                std::cout << "Loop" << std::endl;
+                s->setSelected(true);
+                s->setOpacity( 1.1-s->opacity()); //assuming default opacity=1. switch from 1. to 0.1, and conversely
+            }
         }
     }
 

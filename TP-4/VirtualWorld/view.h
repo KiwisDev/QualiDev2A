@@ -11,7 +11,8 @@ class PaintView : public QGraphicsScene, public Observer {
 
 private:
 	ShapeManager* shapeManager;
-	QPointF mousePos;
+    QPointF lastClickPos;
+    bool isSelecting;
 	QString toolbox;
 
 public:
