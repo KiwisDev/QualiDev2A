@@ -71,3 +71,9 @@ public:
     QString type() const;
     QGraphicsItemGroup* getGraphicsItem() const;
 };
+
+
+class Tree : public Group {
+public:
+    Tree();
+};

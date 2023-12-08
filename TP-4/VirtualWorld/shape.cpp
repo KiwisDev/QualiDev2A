@@ -108,3 +108,8 @@ QGraphicsItemGroup* Group::getGraphicsItem() const {
 QString Group::type() const {
     return "Group";
 }
+
+Tree::Tree() : Group() {
+    this->addShape(new Rectangle(QPointF(0, 10), 20, 40));
+    this->addShape(new Rectangle(QPointF(20, -20), 40, 20));
+}

@@ -133,7 +133,6 @@ void PaintView::mouseReleaseEvent(QGraphicsSceneMouseEvent* mouseEvent) {
             }
         } else {
             for (auto s : items(QRectF(lastClickPos, mouseEvent->pos()))) {
-                std::cout << "Loop" << std::endl;
                 s->setSelected(true);
                 s->setOpacity( 1.1-s->opacity()); //assuming default opacity=1. switch from 1. to 0.1, and conversely
             }
