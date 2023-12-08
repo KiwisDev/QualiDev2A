@@ -92,6 +92,23 @@ void DbManager::printAllData() const {
     }
 }
 
+QMap<int, int> DbManager::getAllData() const {
+    QSqlQuery query("SELECT * FROM pollution");
+    int idDt = query.record().indexOf("dt");
+    int idAqi = query.record().indexOf("aqi");
+
+    QMap<int, int> map;
+
+    while (query.next()) {
+        int dt = query.value(idDt).toInt();
+        int aqi = query.value(idAqi).toInt();
+
+        map.insert(dt, aqi);
+    }
+
+    return map;
+}
+
 bool DbManager::entryExists(int dt) const {
     bool exists = false;
 
@@ -125,4 +142,18 @@ bool DbManager::removeAllData() {
     }
 
     return success;
+}
+
+void DbManager::addObserver(Observer *observer) {
+    this->observerList.push_back(observer);
+}
+
+void DbManager::removeObserver(Observer *observer) {
+    this->observerList.removeOne(observer);
+}
+
+void DbManager::notifyObserver() const {
+    for(int i=0; i<this->observerList.size(); i++) {
+        this->observerList[i]->update();
+    }
 }

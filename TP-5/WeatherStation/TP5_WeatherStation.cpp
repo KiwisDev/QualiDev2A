@@ -29,6 +29,13 @@ TP5_WeatherStation::TP5_WeatherStation(DbManager *dbm, QWidget* parent)
     // Pollution Forecast View
     pollutionView = new ViewPollution(dbmanager, ui->groupBox_pollution);
 
+    if(this->dbmanager->isOpen()) {
+        this->dbmanager->createTable();
+    }
+    else {
+        qDebug() << "DB is not opened at table creatio time";
+    }
+
     connect(netmanagerWeather, SIGNAL(finished(QNetworkReply*)), this, SLOT(weatherReplyFinished(QNetworkReply*)));
     connect(netmanagerPollution, SIGNAL(finished(QNetworkReply*)), this, SLOT(pollutionReplyFinished(QNetworkReply*)));
 
@@ -113,12 +120,20 @@ void TP5_WeatherStation::pollutionReplyFinished(QNetworkReply* reply) {
         QJsonObject jsonObj = jsonReply.object();
 
         QJsonArray list = jsonObj["list"].toArray();
-        for(auto l:list) {
-            QJsonObject element = l.toObject();
-            int aqi = element["main"].toObject()["aqi"].toInt();
-            int dt = element["dt"].toInt();
+        if(this->dbmanager->isOpen()) {
+            this->dbmanager->removeAllData();
+            for(auto l:list) {
+                QJsonObject element = l.toObject();
+                int aqi = element["main"].toObject()["aqi"].toInt();
+                int dt = element["dt"].toInt();
 
-            QDateTime time = QDateTime::fromSecsSinceEpoch(dt);
+                this->dbmanager->addData(dt, aqi);
+
+                QDateTime time = QDateTime::fromSecsSinceEpoch(dt);
+            }
+        }
+        else {
+            qDebug() << "DB is not open at insertion time";
         }
     }
     else { // Failed to connect API
@@ -126,4 +141,6 @@ void TP5_WeatherStation::pollutionReplyFinished(QNetworkReply* reply) {
     }
 
     reply->deleteLater();
+
+    this->dbmanager->notifyObserver();
 }

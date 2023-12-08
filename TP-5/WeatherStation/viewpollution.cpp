@@ -3,6 +3,8 @@
 #include <QDateTime>
 
 ViewPollution::ViewPollution(DbManager* dbm, QWidget* widget) :dbm(dbm), widget(widget) {
+    this->dbm->addObserver(this);
+
     series = new QLineSeries();
 
     QChart *chart = new QChart();
@@ -39,37 +41,30 @@ ViewPollution::ViewPollution(DbManager* dbm, QWidget* widget) :dbm(dbm), widget(
 }
 
 void ViewPollution::update() {
-    series->clear();
+    if(this->dbm->isOpen()) {
+        QMap<int, int> data = this->dbm->getAllData();
+        series->clear();
 
-    // example on how to convert DateTime to Unix,UTC in milliseconds
-    QDateTime currentdt = QDateTime::currentDateTime();
-    qint64 msdt = currentdt.toMSecsSinceEpoch();
-    qDebug() << currentdt << " " << QDateTime::fromMSecsSinceEpoch(msdt);
+        int maxValue = 0;
+        for(QMap<int, int>::iterator it = data.begin(); it != data.end(); it++) {
+            series->append(it.key()*1000, it.value());
+            if(it.value() > maxValue)
+                maxValue = it.value();
+        }
 
-    // generate some mock values
-    // get current time, and add 1 hour (3600000ms) to get next X entry
-    // Warning, OpenWeatherMap provides dt in seconds
-    // => so they will be registered in seconds into the DB...
-    // => you will need to convert to milliseconds (*1000.) before to append
+        QMap<int, int>::iterator it = data.begin();
+        QDateTime dt0;
+        dt0.setMSecsSinceEpoch(it.key()*1000);
 
-    // append first points
-    series->append(msdt, 6);
-    series->append(msdt+3600000., 4);
-    series->append(msdt+3600000.*2, 8);
-    series->append(msdt+3600000.*3, -4);
-    series->append(msdt+3600000.*4, 5);
-    // alternative to append last points, just to show both ways
-    *series << QPointF(msdt+3600000*5, 1) << QPointF(msdt+3600000*6, 3)
-            << QPointF(msdt+3600000*7, 6) << QPointF(msdt+3600000*8, 3) << QPointF(msdt+3600000*9, 2);
+        it = data.end()-1;
+        QDateTime dt1;
+        dt1.setMSecsSinceEpoch(it.key()*1000);
+        axisX->setRange( dt0,dt1);
+        axisY->setRange(0,maxValue+2);
 
-    // Compute min,max and update axis Ranges
-    // Otherwise repaint() will no update the curve ;(
-    QDateTime dt0;
-    dt0.setMSecsSinceEpoch(msdt); //xmin for mock values
-    QDateTime dt1;
-    dt1.setMSecsSinceEpoch(msdt+3600000*9); //xmax
-    axisX->setRange( dt0,dt1);
-    axisY->setRange(-5,9); //ymin,ymax (do not change for these mock values)
-
-    widget->repaint();
+        widget->repaint();
+    }
+    else {
+        qDebug() << "DB is not open at update time";
+    }
 }

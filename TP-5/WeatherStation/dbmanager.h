@@ -4,6 +4,7 @@
 #include <QSqlDatabase>
 #include <QJsonObject>
 #include <QVector>
+#include <QMap>
 #include "observer.h"
 
 /**
@@ -18,9 +19,10 @@
  * 2. sqlite> CREATE TABLE pollution(ids integer primary key, dt interger, aqi integer);
  * 3. sqlite> .quit
  */
-class DbManager {
+class DbManager : public Observable {
 private:
     QSqlDatabase sqldb;
+    QVector<Observer*> observerList;
 public:
     /**
      * @brief Constructor
@@ -75,13 +77,17 @@ public:
     /**
      * @brief return values of all data in db
      */
-    void getAllData() const;
+    QMap<int, int> getAllData() const;
 
     /**
      * @brief Remove all data from db
      * @return true - all data removed successfully, false - not removed
      */
     bool removeAllData();
+
+    void addObserver(Observer* observer) override;
+    void removeObserver(Observer* observer) override ;
+    void notifyObserver() const override;
 
 };
 
