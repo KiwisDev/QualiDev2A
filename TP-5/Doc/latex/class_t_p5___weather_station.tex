@@ -1,0 +1,175 @@
+\doxysection{TP5\+\_\+\+Weather\+Station Class Reference}
+\hypertarget{class_t_p5___weather_station}{}\label{class_t_p5___weather_station}\index{TP5\_WeatherStation@{TP5\_WeatherStation}}
+
+
+\doxylink{class_t_p5___weather_station}{TP5\+\_\+\+Weather\+Station} class.  
+
+
+
+
+{\ttfamily \#include $<$TP5\+\_\+\+Weather\+Station.\+h$>$}
+
+Inheritance diagram for TP5\+\_\+\+Weather\+Station\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_p5___weather_station}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_a7ea622e17297329657ae5efa5ec2ca9a}{weather\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Send a request to the weather Open\+Weather\+Map API to get the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_ad93a6894e311fb89a68049e68a26f440}{weather\+Reply\+Finished}} (QNetwork\+Reply \texorpdfstring{$\ast$}{*}reply)
+\begin{DoxyCompactList}\small\item\em Process recived data from the weather API and update model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_ad40ea0fec45c6cc4a0b0f20f43dd986f}{icon\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Send a request to Open\+Weather\+Map to get the current weather icon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_ab16d2c79bf6322c854f8b938cb2eedce}{icon\+Reply\+Finished}} (QNetwork\+Reply \texorpdfstring{$\ast$}{*}reply)
+\begin{DoxyCompactList}\small\item\em Process recived data from Open\+Weather\+Map to display it on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_a3aab34741f74eecd5bc7bdeabe8c5882}{pollution\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Send a request to the pollution Open\+Weather\+Map API to get the pollution data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_a8350cbd928936002af64c14716d80b65}{pollution\+Reply\+Finished}} (QNetwork\+Reply \texorpdfstring{$\ast$}{*}reply)
+\begin{DoxyCompactList}\small\item\em Process recived data from the pollution Open\+Weather\+Map API and update model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_a7615bea03fce28f483e8a62e8e7f0506}{location\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Send a request to the Geocoding API to get the GPS values of a city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_p5___weather_station_a3987512b139bc2da14ae0416e0405358}{location\+Reply\+Finished}} (QNetwork\+Reply \texorpdfstring{$\ast$}{*}reply)
+\begin{DoxyCompactList}\small\item\em Process recived data from the Geocoding API and update models. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_p5___weather_station_a4ed1cc4c1457723b816c84b0776358a0}{TP5\+\_\+\+Weather\+Station}} (\mbox{\hyperlink{class_db_manager}{Db\+Manager}} \texorpdfstring{$\ast$}{*}dbm, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\mbox{\hyperlink{class_t_p5___weather_station_a3a8ec54f56de32fe6359090a1cf3b633}{\texorpdfstring{$\sim$}{\string~}\+TP5\+\_\+\+Weather\+Station}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_t_p5___weather_station}{TP5\+\_\+\+Weather\+Station} class. 
+
+\begin{DoxyAuthor}{Author}
+Fja 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_p5___weather_station_a4ed1cc4c1457723b816c84b0776358a0}\label{class_t_p5___weather_station_a4ed1cc4c1457723b816c84b0776358a0} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{TP5\_WeatherStation()}{TP5\_WeatherStation()}}
+{\footnotesize\ttfamily TP5\+\_\+\+Weather\+Station\+::\+TP5\+\_\+\+Weather\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_db_manager}{Db\+Manager}} \texorpdfstring{$\ast$}{*}}]{dbm,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_p5___weather_station_a3a8ec54f56de32fe6359090a1cf3b633}\label{class_t_p5___weather_station_a3a8ec54f56de32fe6359090a1cf3b633} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!````~TP5\_WeatherStation@{\texorpdfstring{$\sim$}{\string~}TP5\_WeatherStation}}
+\index{````~TP5\_WeatherStation@{\texorpdfstring{$\sim$}{\string~}TP5\_WeatherStation}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TP5\_WeatherStation()}{\string~TP5\_WeatherStation()}}
+{\footnotesize\ttfamily TP5\+\_\+\+Weather\+Station\+::\texorpdfstring{$\sim$}{\string~}\+TP5\+\_\+\+Weather\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_p5___weather_station_ab16d2c79bf6322c854f8b938cb2eedce}\label{class_t_p5___weather_station_ab16d2c79bf6322c854f8b938cb2eedce} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!iconReplyFinished@{iconReplyFinished}}
+\index{iconReplyFinished@{iconReplyFinished}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{iconReplyFinished}{iconReplyFinished}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::icon\+Reply\+Finished (\begin{DoxyParamCaption}\item[{QNetwork\+Reply \texorpdfstring{$\ast$}{*}}]{reply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Process recived data from Open\+Weather\+Map to display it on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reply} & -\/ recived data from the Open\+Weather\+MAp \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_p5___weather_station_ad40ea0fec45c6cc4a0b0f20f43dd986f}\label{class_t_p5___weather_station_ad40ea0fec45c6cc4a0b0f20f43dd986f} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!iconRequest@{iconRequest}}
+\index{iconRequest@{iconRequest}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{iconRequest}{iconRequest}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::icon\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Send a request to Open\+Weather\+Map to get the current weather icon. 
+
+\Hypertarget{class_t_p5___weather_station_a3987512b139bc2da14ae0416e0405358}\label{class_t_p5___weather_station_a3987512b139bc2da14ae0416e0405358} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!locationReplyFinished@{locationReplyFinished}}
+\index{locationReplyFinished@{locationReplyFinished}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{locationReplyFinished}{locationReplyFinished}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::location\+Reply\+Finished (\begin{DoxyParamCaption}\item[{QNetwork\+Reply \texorpdfstring{$\ast$}{*}}]{reply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Process recived data from the Geocoding API and update models. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reply} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_p5___weather_station_a7615bea03fce28f483e8a62e8e7f0506}\label{class_t_p5___weather_station_a7615bea03fce28f483e8a62e8e7f0506} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!locationRequest@{locationRequest}}
+\index{locationRequest@{locationRequest}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{locationRequest}{locationRequest}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::location\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Send a request to the Geocoding API to get the GPS values of a city. 
+
+\Hypertarget{class_t_p5___weather_station_a8350cbd928936002af64c14716d80b65}\label{class_t_p5___weather_station_a8350cbd928936002af64c14716d80b65} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!pollutionReplyFinished@{pollutionReplyFinished}}
+\index{pollutionReplyFinished@{pollutionReplyFinished}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{pollutionReplyFinished}{pollutionReplyFinished}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::pollution\+Reply\+Finished (\begin{DoxyParamCaption}\item[{QNetwork\+Reply \texorpdfstring{$\ast$}{*}}]{reply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Process recived data from the pollution Open\+Weather\+Map API and update model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reply} & -\/ recived data frol the API \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_p5___weather_station_a3aab34741f74eecd5bc7bdeabe8c5882}\label{class_t_p5___weather_station_a3aab34741f74eecd5bc7bdeabe8c5882} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!pollutionRequest@{pollutionRequest}}
+\index{pollutionRequest@{pollutionRequest}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{pollutionRequest}{pollutionRequest}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::pollution\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Send a request to the pollution Open\+Weather\+Map API to get the pollution data. 
+
+\Hypertarget{class_t_p5___weather_station_ad93a6894e311fb89a68049e68a26f440}\label{class_t_p5___weather_station_ad93a6894e311fb89a68049e68a26f440} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!weatherReplyFinished@{weatherReplyFinished}}
+\index{weatherReplyFinished@{weatherReplyFinished}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{weatherReplyFinished}{weatherReplyFinished}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::weather\+Reply\+Finished (\begin{DoxyParamCaption}\item[{QNetwork\+Reply \texorpdfstring{$\ast$}{*}}]{reply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Process recived data from the weather API and update model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reply} & -\/ recived data from the API \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_p5___weather_station_a7ea622e17297329657ae5efa5ec2ca9a}\label{class_t_p5___weather_station_a7ea622e17297329657ae5efa5ec2ca9a} 
+\index{TP5\_WeatherStation@{TP5\_WeatherStation}!weatherRequest@{weatherRequest}}
+\index{weatherRequest@{weatherRequest}!TP5\_WeatherStation@{TP5\_WeatherStation}}
+\doxysubsubsection{\texorpdfstring{weatherRequest}{weatherRequest}}
+{\footnotesize\ttfamily void TP5\+\_\+\+Weather\+Station\+::weather\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Send a request to the weather Open\+Weather\+Map API to get the current weather. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Weather\+Station/\mbox{\hyperlink{_t_p5___weather_station_8h}{TP5\+\_\+\+Weather\+Station.\+h}}\item 
+Weather\+Station/\mbox{\hyperlink{_t_p5___weather_station_8cpp}{TP5\+\_\+\+Weather\+Station.\+cpp}}\end{DoxyCompactItemize}

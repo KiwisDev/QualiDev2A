@@ -1,0 +1,68 @@
+\doxysection{weatherreport.\+h}
+\hypertarget{weatherreport_8h_source}{}\label{weatherreport_8h_source}\index{WeatherStation/weatherreport.h@{WeatherStation/weatherreport.h}}
+\mbox{\hyperlink{weatherreport_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WEATHERREPORT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WEATHERREPORT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QJsonValue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QJsonDocument>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QJsonObject>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QVariantMap>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QJsonArray>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QVector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{observer_8h}{observer.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_weather_report}{WeatherReport}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_observable}{Observable}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ QString\ main,description;\ \textcolor{comment}{//>\ text\ report}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ temp,temp\_min,temp\_max;\ \textcolor{comment}{//>\ temperatures}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ lon,lat;\ \textcolor{comment}{//>\ localisation}}
+\DoxyCodeLine{00025\ \ \ \ \ QString\ iconCode;\ \textcolor{comment}{//>\ icon\ code}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ QVector<Observer*>\ observerList;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_weather_report_a75cb8c2fcd21f9cc506c32183dc030c2}{WeatherReport}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ QString\&\ \mbox{\hyperlink{class_weather_report_aa0472e3ea6ea829ec64bb8514173a274}{getDescription}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ description;\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_weather_report_a05b641f88ba1f2049e6360a26667f9a6}{getTemp}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ temp;\}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_weather_report_a6a09af64595b9afba57c8590c63157f2}{getTempMin}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ temp\_min;\}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_weather_report_a4c0befa1469cd184f5a3267aa809636b}{getTempMax}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ temp\_max;\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_weather_report_a1bdd9b22a6985bb62a0c6754fa47e46d}{getLon}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ lon;\}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_weather_report_a570e2e22ca7bb0d0cda6375f8de3ef34}{getLat}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ lat;\}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ QString\&\ \mbox{\hyperlink{class_weather_report_a4ddf22f3802dd6ad8fc22181f39dbf89}{getIconCode}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ iconCode;\}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a28df987cbedf59d30b7ae18d6b438ca8}{setDesciption}}(\textcolor{keyword}{const}\ QString\&\ desc)\ \{description\ =\ desc;\}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a36674ffc26657ec369871a0038e90917}{setTemp}}(\textcolor{keywordtype}{double}\ t)\ \{temp\ =\ t;\}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a1941c8e1b0aade2fb330282e9bed02d3}{setTempMin}}(\textcolor{keywordtype}{double}\ t)\ \{temp\_min\ =\ t;\}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a01a6990570337030eff068d11a7da339}{setTempMax}}(\textcolor{keywordtype}{double}\ t)\ \{temp\_max\ =\ t;\}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a543e6520e9279b34fe2a65c038e7943a}{setLon}}(\textcolor{keywordtype}{double}\ l)\ \{lon\ =\ l;\}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_adb53c0e87857f551dca2352ab0519d47}{setLat}}(\textcolor{keywordtype}{double}\ l)\ \{lat\ =\ l;\}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a95e26ab22a9747a1993641c8e212dfb7}{setIconCode}}(\textcolor{keyword}{const}\ QString\&\ code)\ \{iconCode\ =\ code;\}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_ad99065f5adb1716a4bb01297d5d2e5dd}{addObserver}}(\mbox{\hyperlink{class_observer}{Observer}}*\ observer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_aed5ac3ce257612705a938014f069c770}{removeObserver}}(\mbox{\hyperlink{class_observer}{Observer}}*\ observer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weather_report_a4f785571170a9f861a4982e87e0d6a25}{notifyObserver}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WEATHERREPORT\_H}}
+
+\end{DoxyCode}

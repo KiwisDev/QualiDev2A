@@ -1,0 +1,318 @@
+\doxysection{Weather\+Report Class Reference}
+\hypertarget{class_weather_report}{}\label{class_weather_report}\index{WeatherReport@{WeatherReport}}
+
+
+\doxylink{class_weather_report}{Weather\+Report} class.  
+
+
+
+
+{\ttfamily \#include $<$weatherreport.\+h$>$}
+
+Inheritance diagram for Weather\+Report\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_weather_report}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_weather_report_a75cb8c2fcd21f9cc506c32183dc030c2}{Weather\+Report}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+const QString \& \mbox{\hyperlink{class_weather_report_aa0472e3ea6ea829ec64bb8514173a274}{get\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Return the description of the current weather. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_weather_report_a05b641f88ba1f2049e6360a26667f9a6}{get\+Temp}} () const
+\begin{DoxyCompactList}\small\item\em Return the temperature of the current weather. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_weather_report_a6a09af64595b9afba57c8590c63157f2}{get\+Temp\+Min}} () const
+\begin{DoxyCompactList}\small\item\em Return the minimal temperature of the current weather. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_weather_report_a4c0befa1469cd184f5a3267aa809636b}{get\+Temp\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Return the maximal emperature of the current weather. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_weather_report_a1bdd9b22a6985bb62a0c6754fa47e46d}{get\+Lon}} () const
+\begin{DoxyCompactList}\small\item\em Return the longitude of the current weather. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_weather_report_a570e2e22ca7bb0d0cda6375f8de3ef34}{get\+Lat}} () const
+\begin{DoxyCompactList}\small\item\em Return the latitude of the current weather. \end{DoxyCompactList}\item 
+const QString \& \mbox{\hyperlink{class_weather_report_a4ddf22f3802dd6ad8fc22181f39dbf89}{get\+Icon\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Return the icon code of the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a28df987cbedf59d30b7ae18d6b438ca8}{set\+Desciption}} (const QString \&desc)
+\begin{DoxyCompactList}\small\item\em Set the description for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a36674ffc26657ec369871a0038e90917}{set\+Temp}} (double t)
+\begin{DoxyCompactList}\small\item\em Set the temperature for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a1941c8e1b0aade2fb330282e9bed02d3}{set\+Temp\+Min}} (double t)
+\begin{DoxyCompactList}\small\item\em Set the minimal temperature for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a01a6990570337030eff068d11a7da339}{set\+Temp\+Max}} (double t)
+\begin{DoxyCompactList}\small\item\em Set the maximal temperature for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a543e6520e9279b34fe2a65c038e7943a}{set\+Lon}} (double l)
+\begin{DoxyCompactList}\small\item\em Set the longitude for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_adb53c0e87857f551dca2352ab0519d47}{set\+Lat}} (double l)
+\begin{DoxyCompactList}\small\item\em Set the latitude for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a95e26ab22a9747a1993641c8e212dfb7}{set\+Icon\+Code}} (const QString \&code)
+\begin{DoxyCompactList}\small\item\em Set the icon code for the current weather. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_ad99065f5adb1716a4bb01297d5d2e5dd}{add\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Add observer to the observer list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_aed5ac3ce257612705a938014f069c770}{remove\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Remove observer to the observer list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weather_report_a4f785571170a9f861a4982e87e0d6a25}{notify\+Observer}} () const override
+\begin{DoxyCompactList}\small\item\em Call the \textquotesingle{}update\textquotesingle{} function of all the observers of the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_observable}{Observable}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_observable_a058acb5a674eba2b96648c66a27440d8}{\texorpdfstring{$\sim$}{\string~}\+Observable}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_weather_report}{Weather\+Report} class. 
+
+\begin{DoxyAuthor}{Author}
+FJa 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_weather_report_a75cb8c2fcd21f9cc506c32183dc030c2}\label{class_weather_report_a75cb8c2fcd21f9cc506c32183dc030c2} 
+\index{WeatherReport@{WeatherReport}!WeatherReport@{WeatherReport}}
+\index{WeatherReport@{WeatherReport}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{WeatherReport()}{WeatherReport()}}
+{\footnotesize\ttfamily Weather\+Report\+::\+Weather\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor sets up all the data to 0.\+0 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_weather_report_ad99065f5adb1716a4bb01297d5d2e5dd}\label{class_weather_report_ad99065f5adb1716a4bb01297d5d2e5dd} 
+\index{WeatherReport@{WeatherReport}!addObserver@{addObserver}}
+\index{addObserver@{addObserver}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{addObserver()}{addObserver()}}
+{\footnotesize\ttfamily void Weather\+Report\+::add\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Add observer to the observer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & -\/ observer object to add \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observable_a959b41e1637ebeeb32b7118b15770867}{Observable}}.
+
+\Hypertarget{class_weather_report_aa0472e3ea6ea829ec64bb8514173a274}\label{class_weather_report_aa0472e3ea6ea829ec64bb8514173a274} 
+\index{WeatherReport@{WeatherReport}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily const QString \& Weather\+Report\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the description of the current weather. 
+
+\Hypertarget{class_weather_report_a4ddf22f3802dd6ad8fc22181f39dbf89}\label{class_weather_report_a4ddf22f3802dd6ad8fc22181f39dbf89} 
+\index{WeatherReport@{WeatherReport}!getIconCode@{getIconCode}}
+\index{getIconCode@{getIconCode}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getIconCode()}{getIconCode()}}
+{\footnotesize\ttfamily const QString \& Weather\+Report\+::get\+Icon\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the icon code of the current weather. 
+
+\Hypertarget{class_weather_report_a570e2e22ca7bb0d0cda6375f8de3ef34}\label{class_weather_report_a570e2e22ca7bb0d0cda6375f8de3ef34} 
+\index{WeatherReport@{WeatherReport}!getLat@{getLat}}
+\index{getLat@{getLat}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getLat()}{getLat()}}
+{\footnotesize\ttfamily double Weather\+Report\+::get\+Lat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the latitude of the current weather. 
+
+\Hypertarget{class_weather_report_a1bdd9b22a6985bb62a0c6754fa47e46d}\label{class_weather_report_a1bdd9b22a6985bb62a0c6754fa47e46d} 
+\index{WeatherReport@{WeatherReport}!getLon@{getLon}}
+\index{getLon@{getLon}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getLon()}{getLon()}}
+{\footnotesize\ttfamily double Weather\+Report\+::get\+Lon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the longitude of the current weather. 
+
+\Hypertarget{class_weather_report_a05b641f88ba1f2049e6360a26667f9a6}\label{class_weather_report_a05b641f88ba1f2049e6360a26667f9a6} 
+\index{WeatherReport@{WeatherReport}!getTemp@{getTemp}}
+\index{getTemp@{getTemp}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getTemp()}{getTemp()}}
+{\footnotesize\ttfamily double Weather\+Report\+::get\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the temperature of the current weather. 
+
+\Hypertarget{class_weather_report_a4c0befa1469cd184f5a3267aa809636b}\label{class_weather_report_a4c0befa1469cd184f5a3267aa809636b} 
+\index{WeatherReport@{WeatherReport}!getTempMax@{getTempMax}}
+\index{getTempMax@{getTempMax}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getTempMax()}{getTempMax()}}
+{\footnotesize\ttfamily double Weather\+Report\+::get\+Temp\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the maximal emperature of the current weather. 
+
+\Hypertarget{class_weather_report_a6a09af64595b9afba57c8590c63157f2}\label{class_weather_report_a6a09af64595b9afba57c8590c63157f2} 
+\index{WeatherReport@{WeatherReport}!getTempMin@{getTempMin}}
+\index{getTempMin@{getTempMin}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{getTempMin()}{getTempMin()}}
+{\footnotesize\ttfamily double Weather\+Report\+::get\+Temp\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the minimal temperature of the current weather. 
+
+\Hypertarget{class_weather_report_a4f785571170a9f861a4982e87e0d6a25}\label{class_weather_report_a4f785571170a9f861a4982e87e0d6a25} 
+\index{WeatherReport@{WeatherReport}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Weather\+Report\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Call the \textquotesingle{}update\textquotesingle{} function of all the observers of the list. 
+
+
+
+Implements \mbox{\hyperlink{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}{Observable}}.
+
+\Hypertarget{class_weather_report_aed5ac3ce257612705a938014f069c770}\label{class_weather_report_aed5ac3ce257612705a938014f069c770} 
+\index{WeatherReport@{WeatherReport}!removeObserver@{removeObserver}}
+\index{removeObserver@{removeObserver}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{removeObserver()}{removeObserver()}}
+{\footnotesize\ttfamily void Weather\+Report\+::remove\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Remove observer to the observer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & -\/ observer to remove from the list \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observable_a620631b40a72b72dd13f430d3884b732}{Observable}}.
+
+\Hypertarget{class_weather_report_a28df987cbedf59d30b7ae18d6b438ca8}\label{class_weather_report_a28df987cbedf59d30b7ae18d6b438ca8} 
+\index{WeatherReport@{WeatherReport}!setDesciption@{setDesciption}}
+\index{setDesciption@{setDesciption}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setDesciption()}{setDesciption()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Desciption (\begin{DoxyParamCaption}\item[{const QString \&}]{desc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the description for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & -\/ description to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_a95e26ab22a9747a1993641c8e212dfb7}\label{class_weather_report_a95e26ab22a9747a1993641c8e212dfb7} 
+\index{WeatherReport@{WeatherReport}!setIconCode@{setIconCode}}
+\index{setIconCode@{setIconCode}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setIconCode()}{setIconCode()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Icon\+Code (\begin{DoxyParamCaption}\item[{const QString \&}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the icon code for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & -\/ icon code to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_adb53c0e87857f551dca2352ab0519d47}\label{class_weather_report_adb53c0e87857f551dca2352ab0519d47} 
+\index{WeatherReport@{WeatherReport}!setLat@{setLat}}
+\index{setLat@{setLat}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setLat()}{setLat()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Lat (\begin{DoxyParamCaption}\item[{double}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the latitude for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ latitude to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_a543e6520e9279b34fe2a65c038e7943a}\label{class_weather_report_a543e6520e9279b34fe2a65c038e7943a} 
+\index{WeatherReport@{WeatherReport}!setLon@{setLon}}
+\index{setLon@{setLon}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setLon()}{setLon()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Lon (\begin{DoxyParamCaption}\item[{double}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the longitude for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ longitude to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_a36674ffc26657ec369871a0038e90917}\label{class_weather_report_a36674ffc26657ec369871a0038e90917} 
+\index{WeatherReport@{WeatherReport}!setTemp@{setTemp}}
+\index{setTemp@{setTemp}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setTemp()}{setTemp()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Temp (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the temperature for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ temperature to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_a01a6990570337030eff068d11a7da339}\label{class_weather_report_a01a6990570337030eff068d11a7da339} 
+\index{WeatherReport@{WeatherReport}!setTempMax@{setTempMax}}
+\index{setTempMax@{setTempMax}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setTempMax()}{setTempMax()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Temp\+Max (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the maximal temperature for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ maximal temperature to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_weather_report_a1941c8e1b0aade2fb330282e9bed02d3}\label{class_weather_report_a1941c8e1b0aade2fb330282e9bed02d3} 
+\index{WeatherReport@{WeatherReport}!setTempMin@{setTempMin}}
+\index{setTempMin@{setTempMin}!WeatherReport@{WeatherReport}}
+\doxysubsubsection{\texorpdfstring{setTempMin()}{setTempMin()}}
+{\footnotesize\ttfamily void Weather\+Report\+::set\+Temp\+Min (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the minimal temperature for the current weather. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ minimal temperature to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Weather\+Station/\mbox{\hyperlink{weatherreport_8h}{weatherreport.\+h}}\item 
+Weather\+Station/\mbox{\hyperlink{weatherreport_8cpp}{weatherreport.\+cpp}}\end{DoxyCompactItemize}

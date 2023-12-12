@@ -1,0 +1,104 @@
+\doxysection{Observable Class Reference}
+\hypertarget{class_observable}{}\label{class_observable}\index{Observable@{Observable}}
+
+
+\doxylink{class_observable}{Observable} class.  
+
+
+
+
+{\ttfamily \#include $<$observer.\+h$>$}
+
+Inheritance diagram for Observable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_observable_a058acb5a674eba2b96648c66a27440d8}{\texorpdfstring{$\sim$}{\string~}\+Observable}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a959b41e1637ebeeb32b7118b15770867}{add\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer)=0
+\begin{DoxyCompactList}\small\item\em Add observer to the observer list. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a620631b40a72b72dd13f430d3884b732}{remove\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer)=0
+\begin{DoxyCompactList}\small\item\em Remove observer to the observer list. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}{notify\+Observer}} () const =0
+\begin{DoxyCompactList}\small\item\em Call the \textquotesingle{}update\textquotesingle{} function of all the observers of the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_observable}{Observable} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_observable_a058acb5a674eba2b96648c66a27440d8}\label{class_observable_a058acb5a674eba2b96648c66a27440d8} 
+\index{Observable@{Observable}!````~Observable@{\texorpdfstring{$\sim$}{\string~}Observable}}
+\index{````~Observable@{\texorpdfstring{$\sim$}{\string~}Observable}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Observable()}{\string~Observable()}}
+{\footnotesize\ttfamily virtual Observable\+::\texorpdfstring{$\sim$}{\string~}\+Observable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_observable_a959b41e1637ebeeb32b7118b15770867}\label{class_observable_a959b41e1637ebeeb32b7118b15770867} 
+\index{Observable@{Observable}!addObserver@{addObserver}}
+\index{addObserver@{addObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{addObserver()}{addObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::add\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Add observer to the observer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & -\/ observer object to add \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}{Db\+Manager}}, and \mbox{\hyperlink{class_weather_report_ad99065f5adb1716a4bb01297d5d2e5dd}{Weather\+Report}}.
+
+\Hypertarget{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}\label{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd} 
+\index{Observable@{Observable}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Call the \textquotesingle{}update\textquotesingle{} function of all the observers of the list. 
+
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}{Db\+Manager}}, and \mbox{\hyperlink{class_weather_report_a4f785571170a9f861a4982e87e0d6a25}{Weather\+Report}}.
+
+\Hypertarget{class_observable_a620631b40a72b72dd13f430d3884b732}\label{class_observable_a620631b40a72b72dd13f430d3884b732} 
+\index{Observable@{Observable}!removeObserver@{removeObserver}}
+\index{removeObserver@{removeObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{removeObserver()}{removeObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::remove\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Remove observer to the observer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & -\/ observer to remove from the list \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_a37815c45827ca1983a847a3a331f0f24}{Db\+Manager}}, and \mbox{\hyperlink{class_weather_report_aed5ac3ce257612705a938014f069c770}{Weather\+Report}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Weather\+Station/\mbox{\hyperlink{observer_8h}{observer.\+h}}\end{DoxyCompactItemize}
