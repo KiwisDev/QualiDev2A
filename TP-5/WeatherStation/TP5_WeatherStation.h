@@ -13,6 +13,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 #include <QInputDialog>
+#include <QPixmap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TP5_WeatherStationClass; }
@@ -33,12 +34,14 @@ private:
     Ui::TP5_WeatherStationClass* ui;
 
     double lon, lat;
+    QPixmap icon;
 
     WeatherReport* weatherReport;
     DbManager* dbmanager;
     QNetworkAccessManager* netmanagerWeather;
     QNetworkAccessManager* netmanagerPollution;
     QNetworkAccessManager* netmanagerLocation;
+    QNetworkAccessManager* netmanagerIcon;
 
     ViewReport *reportView;
     ViewPollution *pollutionView;
@@ -46,6 +49,9 @@ private:
 public slots:
     void weatherRequest();
     void weatherReplyFinished(QNetworkReply* reply);
+
+    void iconRequest();
+    void iconReplyFinished(QNetworkReply* reply);
 
     void pollutionRequest();
     void pollutionReplyFinished(QNetworkReply* reply);

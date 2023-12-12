@@ -22,11 +22,13 @@ TP5_WeatherStation::TP5_WeatherStation(DbManager *dbm, QWidget* parent)
     , netmanagerWeather (new QNetworkAccessManager(this))              // NetWork Manager, for http requests
     , netmanagerPollution (new QNetworkAccessManager(this))            // Network Manager, for http requests
     , netmanagerLocation (new QNetworkAccessManager(this))             // Network Manager, for http requests
+    , netmanagerIcon (new QNetworkAccessManager(this))                 // Network Manager, for http requests
 {
     ui->setupUi(this);
 
     this->lon = 5.4133;
     this->lat = 46.0398;
+    this->icon;
 
     // Weather report View
     reportView = new ViewReport(weatherReport,ui);
@@ -43,6 +45,7 @@ TP5_WeatherStation::TP5_WeatherStation(DbManager *dbm, QWidget* parent)
     connect(netmanagerWeather, SIGNAL(finished(QNetworkReply*)), this, SLOT(weatherReplyFinished(QNetworkReply*)));
     connect(netmanagerPollution, SIGNAL(finished(QNetworkReply*)), this, SLOT(pollutionReplyFinished(QNetworkReply*)));
     connect(netmanagerLocation, SIGNAL(finished(QNetworkReply*)), this, SLOT(locationReplyFinished(QNetworkReply*)));
+    connect(netmanagerIcon, SIGNAL(finished(QNetworkReply*)), this, SLOT(iconReplyFinished(QNetworkReply*)));
 
     weatherRequest();
     pollutionRequest();
@@ -93,6 +96,7 @@ void TP5_WeatherStation::weatherReplyFinished(QNetworkReply* reply) {
         QJsonArray weatherArray = jsonObj["weather"].toArray();
         QJsonObject weatherObj = weatherArray[0].toObject();
         this->weatherReport->setDesciption(weatherObj["description"].toString());
+        this->weatherReport->setIconCode(weatherObj["icon"].toString());
     }
     else { // Failed to connect API
 
@@ -100,7 +104,37 @@ void TP5_WeatherStation::weatherReplyFinished(QNetworkReply* reply) {
 
     reply->deleteLater();
 
+    iconRequest();
+
     this->weatherReport->notifyObserver();
+}
+
+void TP5_WeatherStation::iconRequest() {
+    QString stringURL =
+        "https://openweathermap.org/img/wn/" + this->weatherReport->getIconCode() + "@2x.png";
+    QUrl url(stringURL);
+
+    QNetworkRequest request;
+    request.setUrl(url);
+    netmanagerIcon->get(request);
+}
+
+void TP5_WeatherStation::iconReplyFinished(QNetworkReply *reply) {
+    // -- Manage response -- //
+    if(reply->error() != QNetworkReply::NoError) { // Error in reply
+
+    }
+    else if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 200) { // Success
+        icon.loadFromData(reply->readAll());
+        ui->label_8->setPixmap(this->icon);
+        ui->label_8->setScaledContents(true);
+        ui->label_8->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    }
+    else { // Failed to connect API
+
+    }
+
+    reply->deleteLater();
 }
 
 void TP5_WeatherStation::pollutionRequest() {

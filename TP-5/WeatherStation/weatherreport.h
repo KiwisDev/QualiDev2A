@@ -22,6 +22,7 @@ private:
     QString main,description; //> text report
     double temp,temp_min,temp_max; //> temperatures
     double lon,lat; //> localisation
+    QString iconCode; //> icon code
 
     QVector<Observer*> observerList;
 public:
@@ -34,6 +35,7 @@ public:
     double getTempMax() const {return temp_max;}
     double getLon() const {return lon;}
     double getLat() const {return lat;}
+    const QString getIconCode() const {return iconCode;}
 
     void setDesciption(const QString& desc) {description = desc;}
     void setTemp(double t) {temp = t;}
@@ -41,6 +43,7 @@ public:
     void setTempMax(double t) {temp_max = t;}
     void setLon(double l) {lon = l;}
     void setLat(double l) {lat = l;}
+    void setIconCode(const QString code) {iconCode = code;}
 
     void addObserver(Observer* observer) override;
     void removeObserver(Observer* observer) override;

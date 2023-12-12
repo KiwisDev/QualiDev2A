@@ -4,7 +4,7 @@
 
 WeatherReport::WeatherReport()
     : temp(0.0),temp_min(0.0),temp_max(0.0),
-      lon(0.0),lat(0.0)
+    lon(0.0),lat(0.0)
 { }
 
 void WeatherReport::addObserver(Observer *observer) {

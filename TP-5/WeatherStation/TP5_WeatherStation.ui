@@ -160,7 +160,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Icone</string>
+        <string/>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_temp">
