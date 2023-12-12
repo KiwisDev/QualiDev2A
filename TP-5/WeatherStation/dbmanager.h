@@ -8,9 +8,9 @@
 #include "observer.h"
 
 /**
- * \class DbManager
+ * @class DbManager
  *
- * \brief SQL Database Manager class
+ * @brief SQL Database Manager class
  *
  * DbManager sets up the connection with SQL database
  * and performs some basics queries. The class requires
@@ -64,7 +64,7 @@ public:
 
     /**
      * @brief Check if data of dt "dt" exists in db
-     * @param dt - dt of data to  to check.
+     * @param dt - dt of data to check.
      * @return true - data exists, false - data does not exist
      */
     bool entryExists(int dt) const;
@@ -75,7 +75,7 @@ public:
     void printAllData() const;
 
     /**
-     * @brief return values of all data in db
+     * @brief Return values of all data in db
      */
     QMap<int, int> getAllData() const;
 
@@ -85,8 +85,21 @@ public:
      */
     bool removeAllData();
 
+    /**
+     * @brief Add observer to the observer list
+     * @param observer - observer object to add
+     */
     void addObserver(Observer* observer) override;
+
+    /**
+     * @brief Remove observer to the observer list
+     * @param observer - observer to remove from the list
+     */
     void removeObserver(Observer* observer) override ;
+
+    /**
+     * @brief Call the 'update' function of all the observers of the list
+     */
     void notifyObserver() const override;
 
 };

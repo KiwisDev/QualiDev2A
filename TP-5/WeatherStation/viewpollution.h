@@ -20,7 +20,7 @@ QT_CHARTS_USE_NAMESPACE
 QT_USE_NAMESPACE
 
 /**
- * @brief The ViewPollution class
+ * @brief ViewPollution class
  * @author Fja
  */
 class ViewPollution : public QObject, public Observer {
@@ -34,6 +34,9 @@ private:
 public:
     ViewPollution(DbManager*, QWidget*);
 
+    /**
+     * @brief Call the 'update' function of all the observers of the list
+     */
     void update() override;
 };
 

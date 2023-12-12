@@ -8,7 +8,7 @@
 #include "ui_TP5_WeatherStation.h"
 
 /**
- * @brief The ViewReport class
+ * @brief ViewReport class
  * @author FJa
  */
 class ViewReport : public QObject, public Observer {
@@ -19,7 +19,14 @@ private:
 public:
     ViewReport(WeatherReport *wreport, Ui::TP5_WeatherStationClass* ui);
 
+    /**
+     * @brief Initialize all the field of the UI
+     */
     void init();
+
+    /**
+     * @brief Call the 'update' function of all the observers of the list
+     */
     void update() override;
 };
 
