@@ -21,8 +21,12 @@ TP5_WeatherStation::TP5_WeatherStation(DbManager *dbm, QWidget* parent)
     , dbmanager (dbm)                   // DB Manager, for Pollution Data
     , netmanagerWeather (new QNetworkAccessManager(this))              // NetWork Manager, for http requests
     , netmanagerPollution (new QNetworkAccessManager(this))            // Network Manager, for http requests
+    , netmanagerLocation (new QNetworkAccessManager(this))             // Network Manager, for http requests
 {
     ui->setupUi(this);
+
+    this->lon = 5.4133;
+    this->lat = 46.0398;
 
     // Weather report View
     reportView = new ViewReport(weatherReport,ui);
@@ -33,17 +37,19 @@ TP5_WeatherStation::TP5_WeatherStation(DbManager *dbm, QWidget* parent)
         this->dbmanager->createTable();
     }
     else {
-        qDebug() << "DB is not opened at table creatio time";
+        qDebug() << "DB is not opened at table creation time";
     }
 
     connect(netmanagerWeather, SIGNAL(finished(QNetworkReply*)), this, SLOT(weatherReplyFinished(QNetworkReply*)));
     connect(netmanagerPollution, SIGNAL(finished(QNetworkReply*)), this, SLOT(pollutionReplyFinished(QNetworkReply*)));
+    connect(netmanagerLocation, SIGNAL(finished(QNetworkReply*)), this, SLOT(locationReplyFinished(QNetworkReply*)));
 
     weatherRequest();
     pollutionRequest();
 
     connect(ui->pushButton_weather_request, &QPushButton::pressed, this, &TP5_WeatherStation::weatherRequest);
     connect(ui->pushButton_weather_request, &QPushButton::pressed, this, &TP5_WeatherStation::pollutionRequest);
+    connect(ui->actionChanger_ville, &QAction::triggered, this, &TP5_WeatherStation::locationRequest);
 }
 
 TP5_WeatherStation::~TP5_WeatherStation() {
@@ -55,7 +61,7 @@ TP5_WeatherStation::~TP5_WeatherStation() {
 
 void TP5_WeatherStation::weatherRequest() {
     QString stringURL =
-        "https://api.openweathermap.org/data/2.5/weather?q=bourg-en-bresse,fr&units=metric&lang=fr&appid=265705b3133eada0132261b3ca61a96f";
+        "https://api.openweathermap.org/data/2.5/weather?lat=" + QString::number(this->lat) + "&lon=" + QString::number(this->lon) + "&units=metric&lang=fr&appid=265705b3133eada0132261b3ca61a96f";
     QUrl url(stringURL);
 
     QNetworkRequest request;
@@ -99,7 +105,7 @@ void TP5_WeatherStation::weatherReplyFinished(QNetworkReply* reply) {
 
 void TP5_WeatherStation::pollutionRequest() {
     QString stringURL =
-        "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=46.0398&lon=5.4133&units=metric&lang=fr&appid=265705b3133eada0132261b3ca61a96f";
+        "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + QString::number(this->lat) + "&lon=" + QString::number(this->lon) + "&units=metric&lang=fr&appid=265705b3133eada0132261b3ca61a96f";
     QUrl url(stringURL);
 
     QNetworkRequest request;
@@ -143,4 +149,45 @@ void TP5_WeatherStation::pollutionReplyFinished(QNetworkReply* reply) {
     reply->deleteLater();
 
     this->dbmanager->notifyObserver();
+}
+
+void TP5_WeatherStation::locationRequest() {
+    bool ok;
+    QString city = QInputDialog::getText(this, "Changer la localisation", "Ville :", QLineEdit::Normal, "", &ok);
+
+    if(ok && !city.isEmpty()) {
+        QString stringURL =
+            "http://api.openweathermap.org/geo/1.0/direct?q=" + city +"&limit=5&appid=265705b3133eada0132261b3ca61a96f";
+        QUrl url(stringURL);
+
+        QNetworkRequest request;
+        request.setUrl(url);
+        request.setRawHeader("Accept", "application/json");
+        netmanagerLocation->get(request);
+    }
+}
+
+void TP5_WeatherStation::locationReplyFinished(QNetworkReply *reply) {
+    // -- Manage response -- //
+    if(reply->error() != QNetworkReply::NoError) { // Error in reply
+
+    }
+    else if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 200) { // Success
+        QByteArray datas = reply->readAll();
+
+        QJsonDocument jsonReply = QJsonDocument::fromJson(datas);
+        QJsonArray jsonArray = jsonReply.array();
+
+        QJsonObject jsonObj = jsonArray[0].toObject();
+        this->lat = jsonObj["lat"].toDouble();
+        this->lon = jsonObj["lon"].toDouble();
+    }
+    else { // Failed to connect API
+
+    }
+
+    reply->deleteLater();
+
+    this->weatherRequest();
+    this->pollutionRequest();
 }

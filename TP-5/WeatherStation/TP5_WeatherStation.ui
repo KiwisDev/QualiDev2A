@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>860</width>
+    <width>862</width>
     <height>613</height>
    </rect>
   </property>
@@ -224,10 +224,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>860</width>
-     <height>22</height>
+     <width>862</width>
+     <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuParam_tres">
+    <property name="title">
+     <string>Paramètres</string>
+    </property>
+    <addaction name="actionChanger_ville"/>
+   </widget>
+   <addaction name="menuParam_tres"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -238,6 +245,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionChanger_ville">
+   <property name="text">
+    <string>Changer ville</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

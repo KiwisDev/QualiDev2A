@@ -21,7 +21,6 @@ public:
 
     void init();
     void update() override;
-
 };
 
 #endif // VIEWREPORT_H

@@ -12,6 +12,7 @@
 #include <QNetworkReply>
 #include <QUrl>
 #include <QUrlQuery>
+#include <QInputDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TP5_WeatherStationClass; }
@@ -31,10 +32,13 @@ public:
 private:
     Ui::TP5_WeatherStationClass* ui;
 
+    double lon, lat;
+
     WeatherReport* weatherReport;
     DbManager* dbmanager;
     QNetworkAccessManager* netmanagerWeather;
     QNetworkAccessManager* netmanagerPollution;
+    QNetworkAccessManager* netmanagerLocation;
 
     ViewReport *reportView;
     ViewPollution *pollutionView;
@@ -45,4 +49,7 @@ public slots:
 
     void pollutionRequest();
     void pollutionReplyFinished(QNetworkReply* reply);
+
+    void locationRequest();
+    void locationReplyFinished(QNetworkReply* reply);
 };

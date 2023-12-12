@@ -10,7 +10,7 @@ ViewPollution::ViewPollution(DbManager* dbm, QWidget* widget) :dbm(dbm), widget(
     QChart *chart = new QChart();
     chart->legend()->hide();
     chart->addSeries(series);
-    chart->setTitle("Simple date/line chart example");
+    chart->setTitle("Evolution de la qualité de l'air au fil du temps");
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
     //    chart->createDefaultAxes();
